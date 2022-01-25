@@ -1,26 +1,36 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-<link rel="stylesheet" href="/datatable-package/styling" type="text/css">
+<link rel="stylesheet" href="{{ asset("vendor/slingmont_datatable-package/css/app.css") }}" type="text/css">
 <div id="datatable">
     <button @click="getData">Refresh</button>
-    <table>
-        <thead>
+    <div class="datatable_body">
+        <table>
+            <thead>
             <tr>
                 @foreach($config['columns'] as $column)
                     <th>{{ $column['name'] }}</th>
                 @endforeach
             </tr>
-        </thead>
-        <tbody id="datatable-content">
+            </thead>
+            <tbody id="datatable-content">
             <tr v-for="row in rows">
                 @foreach($config['columns'] as $column)
                     <td v-text="row.{{ $column['slug'] }}"></td>
                 @endforeach
             </tr>
-        </tbody>
-    </table>
-    <div class="loading-body" v-if="loading">
-        <span class="loading-spin"><i class="fas fa-spinner"></i></span>
+            </tbody>
+        </table>
+        <div class="loading" :class="{'visible': loading}">
+            <div class="spinner">
+                <span class="rect1" id="spin1"></span>
+                <span class="rect1" id="spin2"></span>
+                <span class="rect1" id="spin3"></span>
+                <span class="rect1" id="spin4"></span>
+                <span class="rect1" id="spin5"></span>
+            </div>
+        </div>
     </div>
+
+
     <div class="links">
         <div class="links_menu">
             <button @click="navigate(page - 1)">Previous</button>

@@ -7,9 +7,6 @@
             "email": "stijnlingmont@hotmail.com"
         }
     ],
-    "require": {
-        "ext-http": "*"
-    },
     "extra": {
         "laravel": {
             "providers": [

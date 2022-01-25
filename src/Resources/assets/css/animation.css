@@ -1,0 +1,11 @@
+@keyframes spin {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.9);
+    }
+    20% {
+        border-radius: 0.6px;
+        transform: scaleY(4);
+    }
+}
