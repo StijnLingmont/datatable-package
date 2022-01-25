@@ -90,18 +90,44 @@
     display: inline-flex;
 }
 
-#datatable .links button {
-    border: none;
-    background-color: transparent;
-    transition: background-color 200ms;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
 #datatable .links button.active {
     background-color: lightblue;
 }
 
-#datatable .links button:hover {
-    background: rgba(232, 232, 232, 0.8);
+/*
+    Filters
+ */
+
+#datatable .filters {
+    margin-bottom: 10px;
+}
+
+#datatable .filters .filter {
+    display: flex;
+    border: 1px solid darkgrey;
+    width: 250px;
+    transition: all 200ms;
+}
+
+#datatable .filters .filter label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#datatable .filters .filter input {
+    border: transparent;
+    background: transparent;
+    width: 100%;
+    padding: 0 5px;
+    font-size: 1rem;
+}
+
+#datatable .filters .filter input:focus {
+    outline: none;
+}
+
+#datatable .filters .filter:focus-within {
+    border: 1px solid black;
+    background-color: rgba(224, 224, 224, 0.1);
 }

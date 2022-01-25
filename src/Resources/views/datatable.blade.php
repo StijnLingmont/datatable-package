@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ asset("vendor/slingmont_datatable-package/css/app.css") }}" type="text/css">
 <div id="datatable">
-    <button @click="getData">Refresh</button>
+    <div class="filters">
+        <div class="filter">
+            <label for="search">Z</label>
+            <input type="text" id="search" placeholder="Zoeken..." name="search">
+        </div>
+    </div>
+
     <div class="datatable_body">
         <table>
             <thead>
@@ -32,17 +38,17 @@
 
 
     <div class="links">
-        <div class="links_menu">
-            <button @click="navigate(page - 1)">Previous</button>
-            <button @click="navigate(1)" v-if="calculatePagination(1) !== 1">1</button>
-            <div class="links_navigation">
-                <button v-for="index in amountOfLinks" :class="{ 'active': calculatePagination(index) === page }" v-if="calculatePagination(index) <= lastPage" v-text="calculatePagination(index)" @click="navigate(calculatePagination(index))"></button>
-            </div>
-            <button @click="navigate(lastPage)" v-if="calculatePagination(amountOfLinks) !== lastPage" v-text="lastPage"></button>
-            <button @click="navigate(page + 1)">Next</button>
-        </div>
         <div>
             <label v-text="'total: ' + total + ' | ' + from + ' - ' + to">0 | 0 - 0</label>
+        </div>
+        <div class="links_menu">
+            <button class="prev-next-button" @click="navigate(page - 1)">Previous</button>
+            <button class="page-button" @click="navigate(1)" v-if="calculatePagination(1) !== 1">1</button>
+            <div class="links_navigation">
+                <button class="page-button" v-for="index in amountOfLinks" :class="{ 'active': calculatePagination(index) === page }" v-if="calculatePagination(index) <= lastPage" v-text="calculatePagination(index)" @click="navigate(calculatePagination(index))"></button>
+            </div>
+            <button class="page-button" @click="navigate(lastPage)" v-if="calculatePagination(amountOfLinks) !== lastPage" v-text="lastPage"></button>
+            <button class="prev-next-button" @click="navigate(page + 1)">Next</button>
         </div>
     </div>
 </div>
