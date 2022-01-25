@@ -1,0 +1,20 @@
+{
+    "name": "slingmont/datatable-package",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Stijn Lingmont",
+            "email": "stijnlingmont@hotmail.com"
+        }
+    ],
+    "require": {
+        "ext-http": "*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Slingmont\\Datatable\\DatatableProvider"
+            ]
+        }
+    }
+}

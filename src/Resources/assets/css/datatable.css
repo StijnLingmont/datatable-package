@@ -1,0 +1,87 @@
+/* Datatable */
+
+#datatable {
+    position: relative;
+}
+
+#datatable table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#datatable td, #datatable th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#datatable tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* Loading */
+#datatable .loading-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spin i {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    color: white;
+    font-size: 40px;
+}
+
+/* Navigation bar */
+
+#datatable .links {
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#datatable .links .links_menu {
+    display: flex;
+}
+
+#datatable .links .links_menu .links_navigation {
+    margin: 0 5px;
+    display: inline-flex;
+}
+
+#datatable .links button {
+    border: none;
+    background-color: transparent;
+    transition: background-color 200ms;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#datatable .links button.active {
+    background-color: lightblue;
+}
+
+#datatable .links button:hover {
+    background: rgba(232, 232, 232, 0.8);
+}
+
+/* Animation */
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
